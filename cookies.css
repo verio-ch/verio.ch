@@ -1,0 +1,246 @@
+/*
+  ============================================
+  VERIO.CH COOKIE CONSENT STYLES
+  ============================================
+*/
+
+/* 1. Consent Banner */
+#cookie-consent-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--bg-secondary);
+    color: var(--text-secondary);
+    padding: 1.5rem;
+    box-shadow: 0 -4px 12px rgba(0,0,0,0.1);
+    z-index: 1000;
+    display: none; /* Hidden by default */
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    border-top: 1px solid var(--border-primary);
+}
+
+#cookie-consent-banner p {
+    margin: 0;
+    text-align: center;
+    flex-grow: 1;
+}
+
+.cookie-consent-actions {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.cookie-consent-actions .cta-button {
+    padding: 10px 24px;
+    font-size: 0.9rem;
+}
+
+.cookie-consent-actions .cta-button.secondary {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    border: 1px solid var(--border-primary);
+}
+
+.cookie-consent-actions .cta-button.secondary:hover {
+    background-color: var(--border-secondary);
+    border-color: var(--border-primary);
+    box-shadow: none;
+    transform: translateY(-2px);
+}
+
+/* 2. Settings Modal */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: hsla(220, 25%, 10%, 0.7);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    z-index: 1010;
+    display: none; /* Hidden by default */
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    padding: 2rem;
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-lg);
+    width: 90%;
+    max-width: 550px;
+    z-index: 1011;
+    border: 1px solid var(--border-primary);
+}
+
+.modal-content h2 {
+    text-align: left;
+    font-size: 1.75rem;
+    margin-bottom: 2rem;
+}
+
+.cookie-category {
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--border-secondary);
+}
+.cookie-category:last-of-type {
+    border-bottom: none;
+}
+
+.cookie-category-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.cookie-category-header h3 {
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+.cookie-category p {
+    margin: 0.5rem 0 0;
+    font-size: 0.9rem;
+    max-width: 90%;
+}
+
+.modal-actions {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.modal-actions .cta-button {
+    padding: 12px 28px;
+}
+
+/* 3. Toggle Switch */
+.toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 28px;
+}
+
+.toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--border-primary);
+    transition: var(--transition-fast);
+    border-radius: 28px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: var(--transition-fast);
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: var(--brand-blue-primary);
+}
+
+input:checked + .slider:before {
+    transform: translateX(22px);
+}
+
+/* Disabled state for the toggle */
+input:disabled + .slider {
+    cursor: not-allowed;
+    background-color: var(--border-secondary);
+}
+
+input:disabled + .slider:before {
+    background-color: var(--border-primary);
+}
+
+input:disabled:checked + .slider {
+    background-color: var(--brand-blue-light);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    #cookie-consent-banner {
+        padding: 1rem;
+        flex-direction: column;
+        gap: 1rem;
+    }
+    .cookie-consent-actions {
+        width: 100%;
+        justify-content: center;
+    }
+    .modal-content {
+        width: 95%;
+        padding: 1.5rem;
+    }
+    .modal-content h2 {
+        font-size: 1.5rem;
+    }
+}
+
+/* 4. Cookie Details */
+.cookie-details {
+    margin-top: 16px;
+    padding-left: 16px;
+    border-left: 2px solid var(--border-color, #eee);
+}
+
+.cookie-details h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-top: 16px;
+    margin-bottom: 8px;
+}
+
+.cookie-details p {
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+}
+
+.cookie-details ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.cookie-details li {
+    background-color: var(--surface-color, #f9f9f9);
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+}
+
+.cookie-details code {
+    font-family: var(--font-mono, monospace);
+    background-color: transparent;
+    padding: 0;
+}
